@@ -9,6 +9,12 @@ export default {
   theme: {
     extend: {
       colors: {
+        amber: {
+          700: "#ff4f00",
+        },
+        slate: {
+          100: "#ebe9df",
+        },
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
