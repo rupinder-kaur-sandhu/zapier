@@ -30,7 +30,7 @@ function main() {
                 topic: TOPIC_NAME,
                 messages: pendingRows.map((r) => {
                     return {
-                        value: r.zapRunId,
+                        value: JSON.stringify({ zapRunId: r.zapRunId, stage: 0 }),
                     };
                 }),
             });
@@ -48,12 +48,11 @@ main();
 /*
 
 consumer script
+
 docker exec -it kafka1 \
 kafka-console-consumer.sh \
 --bootstrap-server kafka1:9092 \
 --topic product-created-events-topic-090 \
---property print.key=true \
---from-beginning
 
 list topic script
 docker exec -it kafka1 kafka-topics.sh --list --bootstrap-server localhost:39092

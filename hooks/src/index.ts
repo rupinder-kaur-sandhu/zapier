@@ -20,13 +20,15 @@ app.post("/hooks/catch/:userId/:zapId", async (req, res) => {
         metadata: body,
       },
     });
-
+    console.log("zap run done");
     await client.zapRunOutbox.create({
       data: {
         zapRunId: run.id,
       },
     });
   });
+
+  console.log("zap");
 
   res.json({
     message: "Webhook received",
@@ -35,4 +37,4 @@ app.post("/hooks/catch/:userId/:zapId", async (req, res) => {
   //push it on  to a queue(kafka/redis)
 });
 
-app.listen(3000);
+app.listen(3002);
